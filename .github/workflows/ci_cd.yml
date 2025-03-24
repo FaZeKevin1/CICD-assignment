@@ -40,7 +40,7 @@ jobs:
       # Step 4: Run Python tests
       - name: Run Python tests
         run: |
-          if [ -f pytest.ini ] || [ -f test_app.py]; then
+          if [ -f pytest.ini ] || [ -f test_app.py ]; then
             pytest
             echo "Successfully tested python code"
           else
