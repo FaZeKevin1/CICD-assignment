@@ -30,7 +30,7 @@ jobs:
       # Step 3: Lint Python code
       - name: Lint Python code
         run: |
-          if [ -f .flake8 ] || [ -f setup.cfg ] || [ -f tox.ini ] || [ -f .pep8 ]; then
+          if [ -f .flake8 ] || [ -f setup.cfg ] || [ -f tox.ini ] || [ -f .pep8 ]|| [ -f app.py ] || [ -f test_app.py ] ; then
             flake8 .
             echo "Successfuly linted python code"
           else
@@ -40,8 +40,9 @@ jobs:
       # Step 4: Run Python tests
       - name: Run Python tests
         run: |
-          if [ -f pytest.ini ] || ls tests [-f test_app.py]; then
+          if [ -f pytest.ini ] || [-f test_app.py]; then
             pytest
+            echo "Successfully tested python code"
           else
             echo "No tests found, skipping tests."
           fi
